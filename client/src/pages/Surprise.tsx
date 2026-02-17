@@ -140,7 +140,7 @@ export default function Surprise() {
             onClick={handleOpen}
           >
             <Gift className="mr-4 w-8 h-8" />
-            Clicca per il tuo regalo
+            Obten tu regalo
           </Button>
         </motion.div>
       </div>
