@@ -37,19 +37,26 @@ const memories = [
 
 function MemoryItem({ memory, idx }: { memory: typeof memories[number]; idx: number }) {
   const [burst, setBurst] = useState<
-    Array<{ id: number; dx: number; dy: number; rot: number; delay: number }>
+    Array<{ id: number; dx: number; dy: number; rot: number; delay: number; scale: number }>
   >([]);
   const [portrait, setPortrait] = useState<boolean | null>(null);
   const handleClick = () => {
-    const arr = Array.from({ length: 26 }).map((_, i) => ({
-      id: i,
-      dx: (Math.random() - 0.5) * 180,
-      dy: (Math.random() - 0.5) * 180,
-      rot: (Math.random() - 0.5) * 60,
-      delay: Math.random() * 0.15,
-    }));
+    const arr = Array.from({ length: 40 }).map((_, i) => {
+      const angle = Math.random() * Math.PI * 2;
+      const r = 160 + Math.random() * 200;
+      const dx = Math.cos(angle) * r;
+      const dy = Math.sin(angle) * r;
+      return {
+        id: i,
+        dx,
+        dy,
+        rot: (Math.random() - 0.5) * 180,
+        delay: Math.random() * 0.4,
+        scale: 1.1 + Math.random() * 0.8,
+      };
+    });
     setBurst(arr);
-    setTimeout(() => setBurst([]), 2500);
+    setTimeout(() => setBurst([]), 4200);
   };
   const aspectClass = portrait === null ? "aspect-[3/4]" : portrait ? "aspect-[3/4]" : "aspect-[4/3]";
   return (
@@ -87,8 +94,8 @@ function MemoryItem({ memory, idx }: { memory: typeof memories[number]; idx: num
                 key={b.id}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-red-500"
                 initial={{ x: 0, y: 0, opacity: 1, rotate: 0, scale: 1 }}
-                animate={{ x: b.dx, y: b.dy, opacity: 0, rotate: b.rot, scale: 1.3 }}
-                transition={{ duration: 2.5, ease: "easeOut", delay: b.delay }}
+                animate={{ x: b.dx, y: b.dy, opacity: 0, rotate: b.rot, scale: b.scale }}
+                transition={{ duration: 3.8, ease: "easeOut", delay: b.delay }}
               >
                 ♥
               </motion.span>
