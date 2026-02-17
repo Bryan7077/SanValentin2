@@ -17,14 +17,14 @@ const memories = [
     text: "Aquel viaje a la playa", 
     date: "25 Luglio 2025", 
     rotation: 3,
-    img: "https://i.postimg.cc/RZQjM1HW/Whats_App_Image_2026_02_14_at_00_35_56.jpg"
+    img: "https://i.postimg.cc/vZLpQ7Vg/Whats_App_Image_2026_02_14_at_02_30_02.jpg"
   },
   { 
     id: 3, 
     text: "En las buenas y enlas malas", 
     date: "9 gennaio 2025", 
     rotation: -2,
-    img: "https://i.postimg.cc/vZLpQ7Vg/Whats_App_Image_2026_02_14_at_02_30_02.jpg"
+    img: "https://i.postimg.cc/RZQjM1HW/Whats_App_Image_2026_02_14_at_00_35_56.jpg"
   },
   { 
     id: 4, 
